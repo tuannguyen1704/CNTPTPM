@@ -1,0 +1,21 @@
+npm i mysql2 
+npm i dotenv(môi trường)
+mô hình MVC 
+module 1 :
+    -tương tác với database
+    +select
+    +insert
+    +update
+    +delete
+module 2: controllers
+    -xương sống của BE
+    -nhận request từ routes và gửi về cho models xử lý 
+module 3: routes 
+    -tiếp nhận requést từ bên ngoài (front-end,postman,...)
+
+ORM
+cài thêm 
+npm i sequelize sequelize-auto cors
+
+
+cài thư viện để authentication
