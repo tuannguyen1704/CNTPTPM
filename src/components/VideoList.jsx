@@ -112,7 +112,7 @@ const VideoList = () => {
       className={`container ${isVideoListExpanded ? "large-container" : ""}`}
     >
       <div className="banner">
-        <img src="/src/assets/banner.png" alt />
+        <img src="/assets/banner.png" alt />
       </div>
 
       <div className="categories">
@@ -138,7 +138,7 @@ const VideoList = () => {
               <span className="video-duration">12:34</span>
             </a>
             <div className="flex-div">
-              <img src="/src/assets/jack.png" alt="" />
+              <img src="/assets/jack.png" alt="" />
               <div className="vid-info">
                 <a href="/play-video">{video.title}</a>
                 <p>Easy Tutorials</p>

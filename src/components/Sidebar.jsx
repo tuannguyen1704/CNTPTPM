@@ -14,18 +14,18 @@ const Sidebar = () => {
   }, []);
 
   const subscribedList = [
-    { icon: "/src/assets/Jack.png", name: "Jack Nicholson", link: "#" },
-    { icon: "/src/assets/simon.png", name: "Simon Baker", link: "#" },
-    { icon: "/src/assets/tom.png", name: "Tom Hardy", link: "#" },
-    { icon: "/src/assets/megan.png", name: "Megan Ryan", link: "#" },
-    { icon: "/src/assets/cameron.png", name: "Cameron Diaz", link: "#" },
+    { icon: "/assets/Jack.png", name: "Jack Nicholson", link: "#" },
+    { icon: "/assets/simon.png", name: "Simon Baker", link: "#" },
+    { icon: "/assets/tom.png", name: "Tom Hardy", link: "#" },
+    { icon: "/assets/megan.png", name: "Megan Ryan", link: "#" },
+    { icon: "/assets/cameron.png", name: "Cameron Diaz", link: "#" },
   ];
 
   return (
     <div className={`sidebar ${isSmallSidebar ? "small-sidebar" : ""}`}>
       <div className="shortcut-links">
         {shortcutLinks.map((link, index) => (
-          <a href='#' key={index}>
+          <a href="#" key={index}>
             <img src={`/src/assets/${link.icon}`} alt={link.item_name} />
             <p>{link.item_name}</p>
           </a>

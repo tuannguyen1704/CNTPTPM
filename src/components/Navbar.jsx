@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import "../style/Navbar.css";
 import { useSidebar } from "../contexts/SidebarContext";
 import PopupUpload from "./PopupUpload";
@@ -10,7 +10,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { toggleSidebar } = useSidebar();
   const [isAvatarPopupVisible, setIsAvatarPopupVisible] = useState(false);
-  const [isUploadPopupVisible, setIsUploadPopupVisible] = useState(false)
+  const [isUploadPopupVisible, setIsUploadPopupVisible] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(true); // Trạng thái đăng nhập
 
   const [selectedChat, setSelectedChat] = useState(null);
@@ -33,14 +33,13 @@ const Navbar = () => {
     const userLogin = localStorage.getItem("USER_LOGIN");
     if (userLogin) {
       // Nếu đã đăng nhập
-      navigate("/profile")
+      navigate("/profile");
       setIsUploadPopupVisible(true); // Hiển thị popup upload
     } else {
       // Nếu chưa đăng nhập
       navigate("/login"); // Điều hướng đến trang login
     }
   };
-
 
   const toggleMessageList = () => {
     setIsMessageListVisible(!isMessageListVisible);
@@ -65,7 +64,7 @@ const Navbar = () => {
       const avatarPopup = document.querySelector(".popup-menu");
       const userIcon = document.querySelector(".user-icon");
       const uploadPopup = document.querySelector(".upload-popup");
-      const messageList = document.querySelector('.message-list-container');
+      const messageList = document.querySelector(".message-list-container");
 
       if (
         avatarPopup &&
@@ -97,35 +96,43 @@ const Navbar = () => {
     <>
       <nav className="flex-div">
         <div className="nav-left flex-div">
-          <img src="/src/assets/menu.png" alt="Menu" className="menu-icon" onClick={toggleSidebar} />
           <img
-            src="/src/assets/logo.png"
+            src="/assets/menu.png"
+            alt="Menu"
+            className="menu-icon"
+            onClick={toggleSidebar}
+          />
+          <img
+            src="/assets/logo.png"
             alt="Logo"
-            onClick={() => navigate('/')}
-            style={{ cursor: 'pointer' }}
-            className="logo" />
+            onClick={() => navigate("/")}
+            style={{ cursor: "pointer" }}
+            className="logo"
+          />
         </div>
         <div className="nav-middle flex-div">
           <div className="search-box flex-div">
             <input type="text" placeholder="Search" />
-            <img src="/src/assets/search.png" alt="Search" />
+            <img src="/assets/search.png" alt="Search" />
           </div>
-          <img src="/src/assets/voice-search.png" alt="Mic" className="mic-icon" />
+          <img src="/assets/voice-search.png" alt="Mic" className="mic-icon" />
         </div>
         <div className="nav-right flex-div">
           {isLoggedIn ? (
             <>
               <img
-                src="/src/assets/upload.png"
+                src="/assets/upload.png"
                 alt="Upload"
                 onClick={handleUploadClick}
                 style={{ cursor: "pointer" }}
               />
-              <img src="/src/assets/more.png" alt="More" />
+              <img src="/assets/more.png" alt="More" />
               <div className="icon-container">
-                <img src="/src/assets/notification.png" alt="Notifications" />
+                <img src="/assets/notification.png" alt="Notifications" />
                 {notificationCount > 0 && (
-                  <span className="notification-badge">{notificationCount}</span>
+                  <span className="notification-badge">
+                    {notificationCount}
+                  </span>
                 )}
               </div>
               <div className="icon-container">
@@ -136,7 +143,7 @@ const Navbar = () => {
                     cursor: "pointer",
                     fontSize: "24px",
                     color: "#747474",
-                    marginRight: "25px"
+                    marginRight: "25px",
                   }}
                 />
                 {messageCount > 0 && (
@@ -144,7 +151,7 @@ const Navbar = () => {
                 )}
               </div>
               <img
-                src="/src/assets/jack.png"
+                src="/assets/jack.png"
                 alt="User"
                 className="user-icon"
                 onClick={toggleAvatarPopup}
@@ -154,14 +161,16 @@ const Navbar = () => {
                 <div className="popup-menu">
                   <div className="popup-header">
                     <img
-                      src="/src/assets/jack.png"
+                      src="/assets/jack.png"
                       alt="User Avatar"
                       className="user-avatar"
                     />
                     <div className="user-info">
                       <div className="user-name">Phương Đình</div>
                       <div className="user-link">
-                        <a href="/profile" className="channel-link">Xem kênh của bạn</a>
+                        <a href="/profile" className="channel-link">
+                          Xem kênh của bạn
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -178,10 +187,12 @@ const Navbar = () => {
                     <i className="fas fa-gem"></i>Lợi ích của gói Premium
                   </div>
                   <div className="popup-item">
-                    <i className="fas fa-chart-line"></i>Giao dịch mua và gói thành viên
+                    <i className="fas fa-chart-line"></i>Giao dịch mua và gói
+                    thành viên
                   </div>
                   <div className="popup-item">
-                    <i className="fas fa-shield-alt"></i>Dữ liệu của bạn trong YouTube
+                    <i className="fas fa-shield-alt"></i>Dữ liệu của bạn trong
+                    YouTube
                   </div>
                   <div className="popup-item">
                     <i className="fas fa-cog"></i>Cài đặt
@@ -202,14 +213,16 @@ const Navbar = () => {
           ) : (
             <button
               className="sign-in-button"
-              onClick={() => navigate('/login')}
+              onClick={() => navigate("/login")}
             >
               Sign In
             </button>
           )}
         </div>
 
-        {isUploadPopupVisible && <PopupUpload onClose={() => setIsUploadPopupVisible(false)} />}
+        {isUploadPopupVisible && (
+          <PopupUpload onClose={() => setIsUploadPopupVisible(false)} />
+        )}
 
         {isMessageListVisible && (
           <MessageList
@@ -217,13 +230,9 @@ const Navbar = () => {
             onClose={() => setIsMessageListVisible(false)}
           />
         )}
-
       </nav>
       {selectedChat && (
-        <Chat
-          chat={selectedChat}
-          onClose={() => setSelectedChat(null)}
-        />
+        <Chat chat={selectedChat} onClose={() => setSelectedChat(null)} />
       )}
     </>
   );
